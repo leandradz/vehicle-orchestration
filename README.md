@@ -1,3 +1,6 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=leandradz_vehicle-orchestration&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=leandradz_vehicle-orchestration)
+
+
 # vehicle-orchestration
 
 Este diretório orquestra os microsserviços do projeto de vendas e gestão de veículos, incluindo integração com Mercado Pago e exposição de webhooks via ngrok.
@@ -39,6 +42,7 @@ Este diretório orquestra os microsserviços do projeto de vendas e gestão de v
 ## Diagrama de Orquestração
 
 <img src='./assets/fiap-cadastrar-veiculo.png'/>
+<img src='./assets/fiap-listagem-veiculos.png'/>
 <img src='./assets/fiap-criar-venda.png'/>
 <img src='./assets/fiap-criar-pagamento.png'/>
 <img src='./assets/fiap-realizar-pagamento.png'/>
