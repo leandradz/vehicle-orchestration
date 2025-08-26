@@ -21,5 +21,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Clone vehicle-sales-service
+        run: git clone https://github.com/leandradz/vehicle-sales-service.git ../vehicle-sales-service
+      - name: Clone vehicle-manager-service
+        run: git clone https://github.com/leandradz/vehicle-manager-service.git ../vehicle-manager-service
       - name: Build containers
         run: docker compose -f docker-compose.yml build
