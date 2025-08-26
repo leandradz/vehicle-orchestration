@@ -27,10 +27,25 @@ services:
       VEHICLE_MANAGER_SERVICE_API: http://vehicle-manager-service:3002
       AWS_REGION: us-east-1
       DYNAMODB_TABLE: Sales
-      AWS_ACCESS_KEY_ID: test
-      AWS_SECRET_ACCESS_KEY: test
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      MERCADO_PAGO_API: https://api.mercadopago.com
+      MERCADO_PAGO_CLIENT_SECRET: ${MERCADO_PAGO_CLIENT_SECRET}
+      MERCADO_PAGO_CLIENT_ID: ${MERCADO_PAGO_CLIENT_ID}
+      MERCADO_PAGO_QR_CODE_API: https://api.mercadopago.com/instore/orders/qr/seller/collectors
+      MERCADO_PAGO_WEBHOOK:
     depends_on:
       - localstack
+    networks:
+      - vehicle-network
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    command: http vehicle-sales-service:3001
+    ports:
+      - "4040:4040" # painel web do ngrok
+    environment:
+      NGROK_AUTHTOKEN: 2rjnSqRCrpsHkaEGJ6SaruvVGfa_2jfiNmwGdQZ9eq56JEKS8
     networks:
       - vehicle-network
 
