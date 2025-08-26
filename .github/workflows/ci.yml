@@ -27,3 +27,16 @@ jobs:
         run: git clone https://github.com/leandradz/vehicle-manager-service.git ../vehicle-manager-service
       - name: Build containers
         run: docker compose -f docker-compose.yml build
+
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectBaseDir: .
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
